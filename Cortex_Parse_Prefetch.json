@@ -1,0 +1,15 @@
+{
+    "name": "CE_ParsePrefetch",
+    "author": "Hakim Djelili, CEO Cybert Expert",
+    "license": "AGPL-V3",
+    "url": "",
+    "version": "1.0",
+    "description": "CE ParsePrefetch you can parse all PF_DATA of prefetch for good visibility",
+    "dataTypeList": ["file"],
+    "command": "Cortex_Parse_Prefetch/Cortex_Parse_Prefetch.py",
+    "baseConfig": "Cortex_Parse_Prefetch",
+    "config": {
+        "service": "ParsePrefetch",
+        "check_tlp": true
+    }
+}

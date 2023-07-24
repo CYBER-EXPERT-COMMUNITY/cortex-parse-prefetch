@@ -1,0 +1,5 @@
+libscca-python
+zipfile36
+pytest-shutil
+cortexutils
+requests
