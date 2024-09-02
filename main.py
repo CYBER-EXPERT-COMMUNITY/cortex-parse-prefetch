@@ -16,23 +16,17 @@ class ParsePrefetch :
             scca = pyscca.open(filename)
             self.output[str(scca.get_executable_filename())]={}
             self.output[str(scca.get_executable_filename())]["count"]= scca.run_count
+            self.output[str(scca.get_executable_filename())]["mapped_files"]= scca.file_metrics_entries
+
             self.output[str(scca.get_executable_filename())]["hash"] = format(scca.prefetch_hash, 'x').upper()
-            for x in range(8):
+            for x in range(9):
                 
                 if scca.get_last_run_time_as_integer(x) > 0:
                     
                     self.output[str(scca.get_executable_filename())]['date'+str(x)] = scca.get_last_run_time(x).strftime("%Y-%m-%d %H:%M:%S")
 
-                    #last_run_times['date'+str(x)] = scca.get_last_run_time(x).strftime("%Y-%m-%d %H:%M:%S")
-                   # last_run_times.append(scca.get_last_run_time(x).strftime("%Y-%m-%d %H:%M:%S")) #str conversion utilized to change from datetime into human-readable
                 else:
                      self.output[str(scca.get_executable_filename())]['date'+str(x)] = "N/A"
-
-                #    last_run_times['date'+str(x)] = "N/A"
-                 #   last_run_times.append('N/A')
-           # self.output(      
-            
-           # self.output[str(scca.get_executable_filename())] = {"count":str(scca.run_count),"prefetchhah":format(scca.prefetch_hash, 'x').upper()}##, {"prefetchhah":format(scca.prefetch_hash, 'x').upper()}, last_run_times]
 
         except IOError:
             self.output["Error"] = "file doesn't exists"
