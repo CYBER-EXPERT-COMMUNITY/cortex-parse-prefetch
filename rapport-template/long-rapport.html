@@ -1,0 +1,40 @@
+<!-- Error -->
+<div class="panel panel-danger" ng-if="!success" >
+    <div class="panel-heading" >
+      <strong>Error while running the service</strong>
+     </div>
+     <div class="panel-body">
+      <pre>{{content.errorMessage}}</pre>
+     </div>
+  </div>
+  
+  <div class="panel panel-info" ng-if="success">
+    <div class="panel-heading">
+      Cyber expert Parse Prefetch 
+      <br/>
+      Report for <strong>{{artifact.data | fang}}</strong>
+    </div>
+  </div>
+  
+  <div class="panel panel-info" ng-if="success && !content.error">
+    <div class="panel-heading">
+      PREFETCH LIST
+    </div>
+    
+      <br />
+      <table class="table table-bordered panel">
+        <thead>
+          <th>Processus</th>
+          <th>Count</th>
+  
+        </thead>
+        <tbody>
+          <tr ng-repeat="(program,info) in content">
+          
+            <td>{{program}}</td>
+            <td>{{info.count}}</td>
+  
+          </tr>	
+        </tbody>
+      </table>
+  </div>
